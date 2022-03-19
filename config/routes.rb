@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "signup", :to => "users/registrations#new"
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
+    get 'users/:id/edit', :to => 'users/registrations#edit'
   end
   root 'top#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

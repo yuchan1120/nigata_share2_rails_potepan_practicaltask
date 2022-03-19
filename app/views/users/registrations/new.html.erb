@@ -1,0 +1,18 @@
+<div class="create_account">
+  <h3 class="create_titlle">新しいアカウントを作成</h3>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "create_account_form") do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    
+    <%= f.text_field :name, class: "form_item1", placeholder: "ユーザー名" %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form_item1" %>
+
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "form_item1" %>
+
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "form_item1" %>
+
+    <%= f.submit "新しいアカウントを作成", class: "form_item2" %>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

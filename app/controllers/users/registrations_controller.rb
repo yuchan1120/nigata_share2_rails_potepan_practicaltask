@@ -6,12 +6,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:email, :password, :password_confirmation))
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
       if @user.save
-        redirect_to "http://localhost:3000"
+        redirect_to "http://localhost:3000/users/#{@user.id}/edit"
       else
         render "new"
       end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(params.require(:user).permit(:name, :self_introduction, :email, :password, :image))
+      redirect_to "http://localhost:3000/users/#{@user.id}/edit"
+    else
+      render "edit"
+    end
   end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -58,10 +71,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
@@ -71,4 +80,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-end
+end # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  # end
+
+

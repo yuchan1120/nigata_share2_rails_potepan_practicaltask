@@ -18,8 +18,18 @@
         <input class="textbox" type="text" placeholder="キーワード">
       </div>
       <div class="rightside">
+        <% if user_signed_in? %>
+        <%= current_user.name %>
+        <% if current_user.image.attached? %>
+        <%= image_tag current_user.image, class: "header-host-icon" %>
+        <% else %>
+        <img class="header-host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
+        <% end %>
+        <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %>
+        <% else %>
         <input class="header-button" type="button" value="ログイン">
-        <input class="header-button" type="button" value="登録する">
+        <%= button_to '登録する', {controller: 'users/registrations', action: 'new'}, {method: :get, class: "header-button" }%>
+        <% end %>
       </div>
     </header>
 

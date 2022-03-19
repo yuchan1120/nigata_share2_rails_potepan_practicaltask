@@ -1,43 +1,57 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <nav id="nav">
+      <ul>
+          <li><h3>アカウント編集</h3></li>
+          <li><p>メールアドレス</p></li>
+          <li><%= f.text_field :email %></li>
+          <li><p>変更後パスワード（変更する場合のみ入力）</p></li>
+          <li><%= f.text_field :password %></li>
+          <%= f.submit "更新", class: "update_button2" %>
+          <a class="form_item2" href="http://localhost:3000/">トップ画面に戻る</a>
+      </ul>
+  </nav>
 <% end %>
 
-<h3>Cancel my account</h3>
+  <div class="create_profile">
+    <div id="hamburger">
+      <!-- 1番上の線 -->
+      <p class="inner_line" id="line1">アカウント</p>
+      <!-- 真ん中の線 -->
+      <p class="inner_line" id="line2">プロフィール</p>
+      <!-- 1番下の線 -->
+      <span class="inner_line" id="line3"></span>
+    </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= javascript_pack_tag 'users/edit' %>
 
-<%= link_to "Back", :back %>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "create_profile_form" }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <h3>プロフィール</h3>
+      <table>
+      <tr>
+      <% if @user.image.attached? %>
+      <%= image_tag @user.image, class: "host-icon" %>
+      <% else %>
+      <img class="host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
+      <% end %>
+    </tr>
+        <tr>
+          <th><%= f.label :icon ,"アイコン画像" %></th>
+          <td><%= f.file_field :image %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :name ,"名前" %></th>
+          <td><%= f.text_field :name, value: "#{@user.name}" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :self_introduction ,"自己紹介" %></th>
+          <td><%= f.text_area :self_introduction, placeholder: "自己紹介を入力" %></td>
+        </tr>
+      </table>
+      <ul class="update_button_and_form_item2">
+      <%= f.submit "更新", class: "update_button" %>
+      <a class="form_item2" href="http://localhost:3000">トップ画面に戻る</a>
+      </ul>
+    <% end %>
+ </div>

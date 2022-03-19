@@ -1,0 +1,368 @@
+header{
+  width: 100%;
+  box-sizing: border-box;
+  height: 70px;
+  padding: 4px 30px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftside{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+
+.textbox {
+  width: 25%;
+  position: relative;
+  border-radius: 2px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color .15s;
+}
+
+.rightside{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 45%;
+  color: white;
+}
+
+.header-button{
+  margin-left: 15px;
+  position: relative;
+  border-radius: 2px;
+  padding-left: 30px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color .15s;
+}
+
+.firstview{
+  background-image: image-url("komatisansaku.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 650px; 
+}
+
+.form-area{
+  background-color: white;
+  width: 35%;
+  height: 40%;
+  float: left;
+  margin-top: 15%;
+  margin-left: 7%;
+  padding: 24px;
+  border-radius: 5px;
+}
+
+.form-area-title {
+  margin-top: 2%;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.area2{
+  display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s;
+    margin-bottom: 1.5rem!important;
+}
+
+.button{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color;
+  margin-bottom: 1.5rem!important;
+}
+
+.secondview{
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+
+.panels{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recommended-area {
+  color: white;
+  font-size: 24px;
+  display: block;
+  float: left;
+  width: 40%;
+  height: 10%;
+  margin-top: 130%;
+  margin-left: 35%;
+}
+
+.panel-item1 {
+  width: 23%;
+  height: 360px;
+  background-image: image-url("nigata_city.jpg");
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.panel-item2 {
+  width: 23%;
+  height: 360px;
+  background-image: image-url("nagaoka_city.jpg");
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.panel-item3 {
+  width: 23%;
+  height: 360px;
+  background-image: image-url("yuzawa_town.jpg");
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.panel-item4 {
+  width: 23%;
+  height: 360px;
+  background-image: image-url("yahiko_village.jpg");
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  padding-top: 90px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.create_account{
+  display: flex;
+  flex-flow: column;
+  align-items:center;
+
+}
+
+.create_titlle{
+  margin-top: 5%;
+}
+
+.create_account_form{
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items:center;
+  margin-bottom: 64px;
+}
+
+form#new_user.new_user{
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items:center;
+}
+
+.form_item1{
+  width: 50%;
+  padding: 0.375rem 0.75rem;
+  margin: 2%;
+}
+
+.form_item2{
+  width: 60%;
+  padding: 0.375rem 0.75rem;
+  margin: 2%;
+  text-align: center;
+}
+
+.create_profile{
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
+
+.create_profile_form{
+  width: 84%;
+  height: 400px;
+  display: flex;
+  flex-flow: column;
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-bottom: 64px;
+}
+
+
+.host-icon {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50px;
+  margin-left: 30%;
+  margin-bottom: 3%;
+}
+
+table th {
+  padding: 10px 20px;
+}
+
+table td {
+  padding: 10px 20px;
+}
+
+.update_button{
+  color: #fff;
+  background-color: cornflowerblue;
+  width: 10%;
+  border-radius: 2px;
+}
+
+.update_button2{
+  color: #fff;
+  background-color: cornflowerblue;
+  width: 25%;
+  border-radius: 2px;
+  margin-top: 2%;
+  margin-left: 5%;
+}
+
+.update_button_and_form_item2{
+  margin-left: 15%;
+}
+
+#nav{
+  position: absolute;
+  top: 78px;
+  /*ナビメニューを左に隠した状態になる*/
+  left: -100%;
+  width: 100%;
+  height: 400px;
+  background: white;
+  /*０.7秒かけてナビメニューがスライドする*/
+
+}
+#nav ul{
+  padding-top: 1%;
+  margin-left: 30%;
+}
+#nav ul li{
+  list-style-type: none;
+  font-size: 20px;
+}
+#nav p{
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  margin: 0 15px;
+  padding: 10px;
+  transition: .5s;
+}
+#nav li a:hover{
+  color: #ffffff;
+  background: #cd5c5c;
+  border-bottom: none;
+}
+
+#hamburger {
+  background-color: #F6F8F9;;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 16%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.inner_line {
+  display: block;
+  left: 0;
+  width: 100px;
+  transition: 1s;
+  border-radius: 4px;
+}
+
+#line1 {
+  top: 0;
+}
+#line2 {
+  top: 200px;
+}
+#line3 {
+  bottom: 0px;
+}
+
+.in{
+  transform: translateX(100%);
+}
+
+.line_1 {
+  position: relative;
+  z-index: 1;
+  top: 0;
+}
+.line_2 {
+  opacity: 0;
+}
+.line_3 {
+  /*45度回転させる*/
+  transform: rotate(45deg);
+  bottom: 0;
+}
+

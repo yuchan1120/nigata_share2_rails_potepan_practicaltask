@@ -13,7 +13,7 @@
   <body>
     <header>
       <div class="leftside">
-        <img src="/assets/logo.png" alt="ロゴ画像">
+      <a href="http://localhost:3000"><img src="/assets/logo.png" alt="ロゴ画像"></a>
         <input class="textbox" type="text" placeholder="エリア">
         <input class="textbox" type="text" placeholder="キーワード">
       </div>
@@ -27,7 +27,7 @@
         <% end %>
         <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %>
         <% else %>
-        <input class="header-button" type="button" value="ログイン">
+        <%= button_to 'ログイン', {controller: 'users/sessions', action: 'new'}, {method: :get, class: "header-button" }%>
         <%= button_to '登録する', {controller: 'users/registrations', action: 'new'}, {method: :get, class: "header-button" }%>
         <% end %>
       </div>

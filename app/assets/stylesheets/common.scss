@@ -398,3 +398,66 @@ table td {
   width: 40%;
 }
 
+.section-title{
+  font-size: 30px;
+  border-bottom: 5px solid black;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.room-list-area{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+}
+
+.room-list{
+  display: inline-block;
+  width: 300px;
+  height: 350px;
+  background-color: #F6F8F9;
+  padding: 20px 0px;
+  margin: 25px;
+}
+
+.list-count{
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.room-image img{
+  width: 300px;
+  height: 200px;
+}
+
+.room-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  margin: 0px 20px;
+}
+
+.room-address{
+  font-size: small;
+  font-weight: 700;
+  color: black;
+  margin: 0px 20px;
+}
+
+.room-price{
+  font-weight: 700;
+  color: black;
+  text-align: right;
+  margin: 0px 20px;
+}
+
+.list-display{
+  text-decoration: none;
+  color: black;
+}
+
+.nologin-message{
+  text-align: center;
+}
+

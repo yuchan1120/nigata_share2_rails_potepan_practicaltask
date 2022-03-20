@@ -1,2 +1,54 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<div class="section-title">
+  ルーム一覧 <%= @keyword %>
+</div>
+<div class="list-count">
+  検索結果:<%= @rooms.count %>件
+</div>
+<% if user_signed_in? %>
+  <div class="room-list-area">
+    <% @rooms.each do |room| %>
+        <div class="room-list">
+          <%= link_to room, class:"list-display" do %>
+            <div class="room-image">
+              <%= image_tag room.image if room.image.present?  %>
+            </div>
+            <div class="room-name">
+              <%= room.name %>
+            </div>
+            <br>
+            <div class="room-address">
+              <%= room.address %>
+              </div>
+              <br>
+            <div class="room-price">
+              ¥ <%= room.price %>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="nologin-message">
+    ログインしてください
+  </p>
+  <% @rooms.each do |room| %>
+    <div class="room-list">
+      <%= link_to root_path, class:"list-display" do %>
+        <div class="room-image">
+          <%= image_tag room.room_image %>
+        </div>
+        <div class="room-name">
+          <%= room.room_name %>
+        </div>
+        <br>
+        <div class="room-address">
+          <%= room.address %>
+        </div>
+        <br>
+        <div class="room-price">
+          ¥ <%= room.price %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

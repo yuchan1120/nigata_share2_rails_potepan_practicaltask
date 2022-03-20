@@ -7,7 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -21,17 +21,25 @@
         <% if user_signed_in? %>
         <%= current_user.name %>
         <% if current_user.image.attached? %>
-        <%= image_tag current_user.image, class: "header-host-icon" %>
+        <%= image_tag current_user.image, class: "header-host-icon", id: "header-host-icon" %>
         <% else %>
         <img class="header-host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
         <% end %>
-        <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %>
         <% else %>
         <%= button_to 'ログイン', {controller: 'users/sessions', action: 'new'}, {method: :get, class: "header-button" }%>
         <%= button_to '登録する', {controller: 'users/registrations', action: 'new'}, {method: :get, class: "header-button" }%>
         <% end %>
       </div>
     </header>
+    <nav id="nav2">
+    <ul>
+        <li><a href="http://localhost:3000/rooms/new">ルーム登録</a></li>
+        <li><a href="#">予約済みルーム一覧</a></li>
+        <li><a href="#">登録済みルーム一覧</a></li>
+        <li><%= link_to '設定', {controller: 'users/registrations', action: 'edit'} %></li>
+        <li> <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %></li>
+    </ul>
+    </nav>
 
     <%= yield %>
 
@@ -40,4 +48,4 @@
     </footer>
   </body>
 </html>
-
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

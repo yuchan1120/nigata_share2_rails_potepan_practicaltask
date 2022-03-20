@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reservations
+  get 'reservations/index'
   resources :rooms
   get 'rooms/index'
   devise_for :users, :controllers => {

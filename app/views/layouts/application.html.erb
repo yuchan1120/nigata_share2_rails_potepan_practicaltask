@@ -24,13 +24,15 @@
         <% end %>
       </div>
       <div class="rightside">
-        <% if user_signed_in? %>
-        <%= current_user.name %>
-        <% if current_user.image.attached? %>
-        <%= image_tag current_user.image, class: "header-host-icon", id: "header-host-icon" %>
-        <% else %>
-        <img class="header-host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
-        <% end %>
+        <div id="header-host-icon">
+          <% if user_signed_in? %>
+          <%= current_user.name %>
+          <% if current_user.image.attached? %>
+          <%= image_tag current_user.image, class: "header-host-icon" %>
+          <% else %>
+          <img class="header-host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
+          <% end %>
+        </div>
         <% else %>
         <%= button_to 'ログイン', {controller: 'users/sessions', action: 'new'}, {method: :get, class: "header-button" }%>
         <%= button_to '登録する', {controller: 'users/registrations', action: 'new'}, {method: :get, class: "header-button" }%>

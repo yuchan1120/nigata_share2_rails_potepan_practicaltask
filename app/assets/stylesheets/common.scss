@@ -58,6 +58,13 @@ header{
   transition: border-color .15s;
 }
 
+#header-host-icon{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
 .header-host-icon {
   width: 65px;
   height: 65px;

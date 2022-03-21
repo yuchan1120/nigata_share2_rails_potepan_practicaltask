@@ -26,6 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
+
+  def show
+    @rooms = Room.where(user_id: current_user.id)
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

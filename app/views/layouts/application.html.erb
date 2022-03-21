@@ -35,7 +35,7 @@
     <ul>
         <li><a href="http://localhost:3000/rooms/new">ルーム登録</a></li>
         <li><a href="http://localhost:3000/reservations">予約済みルーム一覧</a></li>
-        <li><a href="#">登録済みルーム一覧</a></li>
+        <li><a href="http://localhost:3000/users/show">登録済みルーム一覧</a></li>
         <li><%= link_to '設定', {controller: 'users/registrations', action: 'edit'} %></li>
         <li> <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %></li>
     </ul>

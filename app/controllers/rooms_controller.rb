@@ -24,9 +24,16 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @room = Room.find(params[:id])
   end
 
   def update
+    @room = Room.find(params[:id])
+    if @room.update(room_params)
+      redirect_to "http://localhost:3000/users/show"
+    else
+      render "edit"
+    end
   end
 
   def destroy

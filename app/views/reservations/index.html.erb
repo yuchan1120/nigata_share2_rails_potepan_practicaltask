@@ -9,7 +9,6 @@
         <th>人数</th>
         <th>合計金額</th>
         <th>予約確定日時</th>
-        <th>削除</th>
         </tr>
       </thead>
       <tbody>
@@ -19,13 +18,8 @@
               <td><%= reservation.start_day %></td>
               <td><%= reservation.end_day %></td>
               <td><%= reservation.people %>人</td>
-              <td>¥<%= reservation.total_price %></td>
+              <td><%= reservation.total_price %>円</td>
               <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
-              <% if reservation.user_id == current_user.id %>
-                <td><%= link_to "削除", reservation , method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
-              <% else %>
-                <td><%= "-" %></td>
-              <% end %>
           </tr>
         <% end %>
       </tbody>

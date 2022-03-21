@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     get 'users/show', :to => 'users/registrations#show'
   end
   root 'top#index'
+  get 'search' => 'rooms#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

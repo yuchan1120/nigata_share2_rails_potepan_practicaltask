@@ -35,6 +35,15 @@ class RoomsController < ApplicationController
     redirect_to "http://localhost:3000/users/show"
   end
 
+  def search
+    if params[:keyword].present?
+      @rooms = Room.where(["address like? OR name like? OR introduction like?","%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%"])
+    elsif params[:area].present?
+      @rooms = Room.where(["address like?","%#{params[:area]}%"])
+    end
+    render "index"
+  end
+
   private
 
   def room_params

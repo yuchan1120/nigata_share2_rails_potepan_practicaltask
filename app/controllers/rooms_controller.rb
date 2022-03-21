@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
     @room = Room.new(params.require(:room).permit(:name,:introduction,:price,:address,:image, :user_id))
     @room.user_id = current_user.id
         if @room.save
-          redirect_to  "http://localhost:3000"
+          redirect_to  "http://localhost:3000/rooms/#{@room.id}"
         else
           render "new"
         end

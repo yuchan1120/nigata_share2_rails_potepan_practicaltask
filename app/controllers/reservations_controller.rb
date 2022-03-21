@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where("user_id LIKE?", "#{current_user.id}")
   end
 
   def new

@@ -1,0 +1,27 @@
+<article class="reservation-index">
+ <p class="font_size_1-5rem">予約済みルーム一覧</p>
+    <table>
+      <thead>
+        <tr>
+        <th>ルーム名</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>人数</th>
+        <th>合計金額</th>
+        <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @reservations.each do |reservation| %>
+          <tr>
+              <td><%= reservation.room.name %></td>
+              <td><%= reservation.start_day %></td>
+              <td><%= reservation.end_day %></td>
+              <td><%= reservation.people %>人</td>
+              <td><%= reservation.total_price %>円</td>
+              <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</article>

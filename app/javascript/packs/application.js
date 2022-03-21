@@ -11,3 +11,10 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+function hamburger2() {
+  document.getElementById('nav2').classList.toggle('in2');
+}
+document.getElementById('header-host-icon').addEventListener('click' , function () {
+  hamburger2();
+} );

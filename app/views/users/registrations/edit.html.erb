@@ -1,0 +1,59 @@
+<nav id="nav">
+  <div class="create_profile">
+    <div id="hamburger3">
+      <p class="inner_line" id="line_1">アカウント＜＜</p>
+      <p class="inner_line" id="line_2">プロフィール</p>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "edit_account_form" }) do |f| %>
+          <ul>
+              <li><h3>アカウント編集</h3></li>
+              <li><p>メールアドレス</p></li>
+              <li><%= f.text_field :email %></li>
+              <li><p>変更後パスワード（変更する場合のみ入力）</p></li>
+              <li><%= f.text_field :password %></li>
+              <%= f.submit "更新", class: "update_button2" %>
+              <a class="form_item2" href="http://localhost:3000/">トップ画面に戻る</a>
+          </ul>
+    <% end %>
+  </div>
+</nav>
+  <div class="create_profile">
+    <div class="hamburger">
+      <span class="inner_line" id="line1">アカウント</span>
+      <p class="inner_line" id="line2">プロフィール＜＜</p>
+      <input id="hamburger"  type="button" value="切替">
+    </div>
+
+    <%= javascript_pack_tag 'users/edit' %>
+
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "create_profile_form" }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <h3>プロフィール</h3>
+      <table>
+      <tr>
+      <% if @user.image.attached? %>
+      <%= image_tag @user.image, class: "host-icon" %>
+      <% else %>
+      <img class="host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
+      <% end %>
+    </tr>
+        <tr>
+          <th><%= f.label :icon ,"アイコン画像" %></th>
+          <td><%= f.file_field :image %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :name ,"名前" %></th>
+          <td><%= f.text_field :name, value: "#{@user.name}" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :self_introduction ,"自己紹介" %></th>
+          <td><%= f.text_area :self_introduction, placeholder: "自己紹介を入力" %></td>
+        </tr>
+      </table>
+      <ul class="update_button_and_form_item2">
+      <%= f.submit "更新", class: "update_button" %>
+      <a class="form_item2" href="http://localhost:3000">トップ画面に戻る</a>
+      </ul>
+    <% end %>
+ </div>

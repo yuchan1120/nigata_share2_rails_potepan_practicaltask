@@ -1,0 +1,13 @@
+<div class="create_account">
+  <h3 class="create_titlle">ログイン</h3>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form_item1" %>
+
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form_item1" %>
+
+    <%= f.submit "ログイン", class: "form_item2" %>
+    <a class="form_item2" href="http://localhost:3000/users/sign_up">新しいアカウントを作成</a>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<div class="create_profile">
+  <div class="hamburger">
+   <p class="inner_line" id="line2">基本情報</p>
+  </div>
+  <%= form_with(model: @room, class: "create_profile_form") do |f| %>
+    <h3>ルーム情報登録</h3>
+    <table>
+      <tr>
+        <th><%= f.label :name ,"ルーム名" %></th>
+        <td><%= f.text_field :name, placeholder: "ルーム名を入力", class: "room_information_form_item" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :introduction ,"ルーム紹介" %></th>
+        <td><%= f.text_area :introduction, placeholder: "ルーム説明を入力", class: "room_information_form_item" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :price ,"料金" %></th>
+        <td><%= f.number_field :price, placeholder: "一日あたりの料金を入力", class: "room_information_form_item" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :address ,"住所" %></th>
+        <td><%= f.text_field :address, placeholder: "住所を入力", class: "room_information_form_item" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :image ,"ルーム画像" %></th>
+        <td><%= f.file_field :image %></td>
+      </tr>
+    </table>
+    <ul class="update_button_and_form_item2">
+     <%= f.submit "更新", class: "update_button" %>
+     <a class="form_item2" href="http://localhost:3000">トップ画面に戻る</a>
+    </ul>
+  <% end %>
+</div>

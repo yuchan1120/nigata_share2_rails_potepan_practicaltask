@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   end
   root 'top#index'
   get 'search' => 'rooms#search'
-  get 'area' => 'rooms#area'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

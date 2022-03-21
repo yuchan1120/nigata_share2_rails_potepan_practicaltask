@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+    @user = User.new(user_params)
       if @user.save
         redirect_to "http://localhost:3000/users/#{@user.id}/edit"
       else
@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = User.find(current_user.id)
-    if @user.update(params.require(:user).permit(:name, :self_introduction, :email, :password, :image))
+    if @user.update(user_params)
       redirect_to "http://localhost:3000/users/#{@user.id}/edit"
     else
       render "edit"
@@ -30,6 +30,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def show
     @rooms = Room.where(user_id: current_user.id)
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :self_introduction, :email, :password, :image)
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

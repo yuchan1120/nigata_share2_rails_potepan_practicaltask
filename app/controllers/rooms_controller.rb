@@ -30,5 +30,14 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to "http://localhost:3000/users/show"
+  end
+
+  private
+
+  def room_params
+    params.require(:room).permit(:name, :introduction, :price, :address, :image, :user_id)
   end
 end

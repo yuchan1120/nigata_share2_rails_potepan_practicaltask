@@ -13,9 +13,15 @@
   <body>
     <header>
       <div class="leftside">
-      <a href="http://localhost:3000"><img src="/assets/logo.png" alt="ロゴ画像"></a>
-        <input class="textbox" type="text" placeholder="エリア">
-        <input class="textbox" type="text" placeholder="キーワード">
+        <a href="http://localhost:3000"><img src="/assets/logo.png" alt="ロゴ画像"></a>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :area,placeholder: "エリア", class: "textbox" %>
+          <%= f.submit :area, class: "hide"  %><!-- cssでボタンを非表示 -->
+        <% end %>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword,placeholder: "キーワード", class: "textbox" %>
+          <%= f.submit :search, class: "hide" %><!-- cssでボタンを非表示 -->
+        <% end %>
       </div>
       <div class="rightside">
         <% if user_signed_in? %>

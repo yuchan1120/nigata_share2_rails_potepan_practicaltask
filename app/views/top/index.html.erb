@@ -2,7 +2,12 @@
   <div class="form-area">
     <p class="form-area-title">NigataShareでまだ体験したことのない旅をしよう</p>
     <div class="form">
-      <p>エリア</p> <input class="area2" type="text" placeholder="新潟市"> <input class="button" type="button" value="探す"> </div>
+      <p>エリア</p>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area,placeholder: "新潟市", class: "area2" %>
+        <%= f.submit :探す, class: "button"  %>
+      <% end %>
+   </div>
   </div>
 </div>
 <div class="secondview">

@@ -1,25 +1,27 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <nav id="nav">
-      <ul>
-          <li><h3>アカウント編集</h3></li>
-          <li><p>メールアドレス</p></li>
-          <li><%= f.text_field :email %></li>
-          <li><p>変更後パスワード（変更する場合のみ入力）</p></li>
-          <li><%= f.text_field :password %></li>
-          <%= f.submit "更新", class: "update_button2" %>
-          <a class="form_item2" href="http://localhost:3000/">トップ画面に戻る</a>
-      </ul>
-  </nav>
-<% end %>
-
+<nav id="nav">
   <div class="create_profile">
-    <div id="hamburger">
-      <!-- 1番上の線 -->
-      <p class="inner_line" id="line1">アカウント</p>
-      <!-- 真ん中の線 -->
-      <p class="inner_line" id="line2">プロフィール</p>
-      <!-- 1番下の線 -->
-      <span class="inner_line" id="line3"></span>
+    <div id="hamburger3">
+      <p class="inner_line" id="line_1">アカウント＜＜</p>
+      <p class="inner_line" id="line_2">プロフィール</p>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "edit_account_form" }) do |f| %>
+          <ul>
+              <li><h3>アカウント編集</h3></li>
+              <li><p>メールアドレス</p></li>
+              <li><%= f.text_field :email %></li>
+              <li><p>変更後パスワード（変更する場合のみ入力）</p></li>
+              <li><%= f.text_field :password %></li>
+              <%= f.submit "更新", class: "update_button2" %>
+              <a class="form_item2" href="http://localhost:3000/">トップ画面に戻る</a>
+          </ul>
+    <% end %>
+  </div>
+</nav>
+  <div class="create_profile">
+    <div class="hamburger">
+      <span class="inner_line" id="line1">アカウント</span>
+      <p class="inner_line" id="line2">プロフィール＜＜</p>
+      <input id="hamburger"  type="button" value="切替">
     </div>
 
     <%= javascript_pack_tag 'users/edit' %>

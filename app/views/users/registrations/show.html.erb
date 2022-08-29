@@ -1,0 +1,38 @@
+<article class="reservation-index">
+ <p class="font_size_1-5rem">登録済みルーム一覧</p>
+    <table>
+      <thead>
+        <tr>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th>参照</th>
+        <th>編集</th>
+        <th>削除</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.name %></td>
+            <td><%= room.introduction %></td>
+            <td><%= room.price %>円</td>
+            <td><%= room.created_at.to_s(:datetime_jp) %></td>
+            <td>
+              <%= link_to "参照", room %>
+            </td>
+            <td>
+              <%= link_to "編集", [:edit, room] %>
+            </td>
+            <td>
+             <%= link_to "削除", room , method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <ul>
+     <%= link_to 'ルーム新規登録', '/rooms/new', {method: :get, class: "rooms_new_button" }%>
+    </ul>
+</article>

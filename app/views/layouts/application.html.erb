@@ -7,10 +7,53 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <header>
+      <div class="leftside">
+        <a href="http://localhost:3000"><img src="/assets/logo.png" alt="ロゴ画像"></a>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :area,placeholder: "エリア", class: "textbox" %>
+          <%= f.submit :area, class: "hide"  %><!-- cssでボタンを非表示 -->
+        <% end %>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword,placeholder: "キーワード", class: "textbox" %>
+          <%= f.submit :search, class: "hide" %><!-- cssでボタンを非表示 -->
+        <% end %>
+      </div>
+      <div class="rightside">
+        <div id="header-host-icon">
+          <% if user_signed_in? %>
+          <%= current_user.name %>
+          <% if current_user.image.attached? %>
+          <%= image_tag current_user.image, class: "header-host-icon" %>
+          <% else %>
+          <img class="header-host-icon" src="/assets/host-icon.jpg" alt="デフォルトアイコン">
+          <% end %>
+        </div>
+        <% else %>
+        <%= button_to 'ログイン', {controller: 'users/sessions', action: 'new'}, {method: :get, class: "header-button" }%>
+        <%= button_to '登録する', {controller: 'users/registrations', action: 'new'}, {method: :get, class: "header-button" }%>
+        <% end %>
+      </div>
+    </header>
+    <nav id="nav2">
+    <ul>
+        <li><a href="http://localhost:3000/rooms/new">ルーム登録</a></li>
+        <li><a href="http://localhost:3000/reservations">予約済みルーム一覧</a></li>
+        <li><a href="http://localhost:3000/users/show">登録済みルーム一覧</a></li>
+        <li><%= link_to '設定', {controller: 'users/registrations', action: 'edit'} %></li>
+        <li> <%= link_to 'ログアウト',destroy_user_session_path,class: 'dropdown-item',method: :delete %></li>
+    </ul>
+    </nav>
+
     <%= yield %>
+
+    <footer class="footer">
+      <p>©️2022 miura</p>
+    </footer>
   </body>
 </html>
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

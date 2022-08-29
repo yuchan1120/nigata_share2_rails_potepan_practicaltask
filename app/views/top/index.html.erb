@@ -1,0 +1,29 @@
+<div class="firstview">
+  <div class="form-area">
+    <p class="form-area-title">NigataShareでまだ体験したことのない旅をしよう</p>
+    <div class="form">
+      <p>エリア</p>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area,placeholder: "新潟市", class: "area2" %>
+        <%= f.submit :探す, class: "button"  %>
+      <% end %>
+   </div>
+  </div>
+</div>
+<div class="secondview">
+  <h1 class="section-title">おすすめのエリア</h1>
+  <div class="panels">
+    <div class="panel-item1">
+      <div class="recommended-area">新潟市</div>
+    </div>
+    <div class="panel-item2">
+      <div class="recommended-area">長岡市</div>
+    </div>
+    <div class="panel-item3">
+      <div class="recommended-area">湯沢町</div>
+    </div>
+    <div class="panel-item4">
+      <div class="recommended-area">弥彦村</div>
+    </div>
+  </div>
+</div>
